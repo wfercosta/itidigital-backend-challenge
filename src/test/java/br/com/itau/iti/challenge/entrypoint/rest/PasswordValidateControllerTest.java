@@ -1,7 +1,7 @@
 package br.com.itau.iti.challenge.entrypoint.rest;
 
-import br.com.itau.iti.challenge.core.password.PasswordService;
-import br.com.itau.iti.challenge.core.password.PasswordValidationException;
+import br.com.itau.iti.challenge.core.usecase.password.PasswordValidationException;
+import br.com.itau.iti.challenge.core.usecase.password.PasswordValidationUseCase;
 import br.com.itau.iti.challenge.entrypoint.rest.password.PasswordModelIn;
 import br.com.itau.iti.challenge.entrypoint.rest.password.PasswordValidateController;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -37,7 +37,7 @@ public class PasswordValidateControllerTest {
 	private MockMvc mockMvc;
 
 	@MockBean
-	private PasswordService service;
+	private PasswordValidationUseCase service;
 
 	@Autowired
 	private ObjectMapper objectMapper;
@@ -51,7 +51,7 @@ public class PasswordValidateControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(PasswordModelIn.of(fixture))))
 				.andDo(print())
-				.andExpect(status().isOk());
+				.andExpect(status().isNoContent());
 
 		verify(service).validateThis(eq(fixture));
 	}

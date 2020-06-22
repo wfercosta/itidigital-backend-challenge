@@ -1,4 +1,4 @@
-package br.com.itau.iti.challenge.core.password;
+package br.com.itau.iti.challenge.core.usecase.password;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
 @Tag(TEST_UNIT)
-public class PasswordServiceTest {
+public class PasswordValidationUseCaseTest {
 
 	@InjectMocks
-	private PasswordService service;
+	private PasswordValidationUseCase service;
 
 	@Test
 	@DisplayName("Should not throws exception when the password matches the security criteria")

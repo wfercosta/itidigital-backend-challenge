@@ -1,4 +1,4 @@
-package br.com.itau.iti.challenge.core.password;
+package br.com.itau.iti.challenge.core.usecase.password;
 
 public class PasswordValidationException extends RuntimeException {
 

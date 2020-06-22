@@ -40,7 +40,7 @@ public class PasswordIntegrationTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(PasswordModelIn.of("Bgtyhn56!"))))
 				.andDo(print())
-				.andExpect(status().isOk());
+				.andExpect(status().isNoContent());
 	}
 
 	@Test

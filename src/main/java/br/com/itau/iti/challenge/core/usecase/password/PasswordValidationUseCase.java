@@ -1,4 +1,4 @@
-package br.com.itau.iti.challenge.core.password;
+package br.com.itau.iti.challenge.core.usecase.password;
 
 import org.springframework.stereotype.Service;
 
@@ -7,13 +7,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Service
-public class PasswordService {
+public class PasswordValidationUseCase {
 
 	private static final String REGEX_VALUE = "((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{9,40})";
 
 	private Pattern pattern;
 
-	public PasswordService() {
+	public PasswordValidationUseCase() {
 		this.pattern = Pattern.compile(REGEX_VALUE);
 	}
 
